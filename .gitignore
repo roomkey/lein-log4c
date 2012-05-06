@@ -1,0 +1,9 @@
+pom.xml
+*.jar
+lib/*
+classes/*
+*.war
+.lein-failures
+src/version.clj
+TAGS
+.lein-deps-sum
