@@ -3,7 +3,8 @@
             [robert.hooke :as hook]))
 
 (let [addl-deps {'com.hotelicopter/log4c "[1.2.1,2.0)"
-                 'log4j/log4j "[1.2.16,2.0)"}]
+                 'log4j/log4j "[1.2.16,2.0)"}
+      config (get (System/getenv) "CLJ_LOG_LEVEL")]
   (defn log4c [eip project form & [handler skip-auto-compile init]]
     (let [names (set (map first (:dev-dependencies project)))
           ;; Merge dependencies, preserving order and omitting duplicate names
@@ -12,7 +13,7 @@
           form `(do (try (alter-var-root (var clojure.tools.logging/*logger-factory*)
                                          (constantly (clojure.tools.logging.impl/log4j-factory)))
                          (log4c.core/init!)
-                         (log4c.core/configure-log-levels!)
+                         (log4c.core/configure-log-levels! ~config)
                          (catch Throwable _#))
                     ~form)
           init `(do (try (require 'clojure.tools.logging)
