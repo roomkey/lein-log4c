@@ -5,4 +5,5 @@
                  "snapshots" ~(str user/local-maven-clone "/snapshots")
                  "hotelicopter_snapshots" "https://raw.github.com/g1nn13/maven/master/snapshots"
                  "hotelicopter_releases" "https://raw.github.com/g1nn13/maven/master/releases"}
+  :eval-in-leiningen true
   :hooks [leiningen.v])
