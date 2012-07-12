@@ -1,10 +1,31 @@
 # lein-log4c
 
-FIXME: write description
+This leingingen plugin allows you to configure log4j log levels
+dynamically from the environment *without* requiring any production
+dependency on log4j in your code. This approach is ideally suited for
+library developers who don't want to impose a logging solution on
+their library's clients.
+
+Log levels are configured by namespace.
 
 ## Usage
 
-FIXME: write
+CLJ_LOG_LEVEL=:warn,mylib.myns:debug lein midje
+
+The above will set the root logger to have a log level of WARN and the
+mylib.myns namespace logger to have a level of DEBUG during the
+execution of lein midje.  To configure more static log4j options,
+consider placing a log4j.properties file in your test-resources
+directory.
+
+Note that your project must declare test dependencies as follows:
+
+  :dev-dependencies [...
+                     [org.slf4j/slf4j-api "1.6.4"]
+                     [org.slf4j/jcl-over-slf4j "1.6.4"]
+                     [org.slf4j/slf4j-log4j12 "1.6.4"]
+                     [log4j/log4j "1.2.16"]
+                     ...]
 
 ## License
 
