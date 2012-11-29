@@ -1,9 +1,7 @@
-(defproject com.hotelicopter/lein-log4c "lein-version"
+(defproject com.hotelicopter/lein-log4c "lein-v"
   :description "A Leiningen plugin to configure the log4j configuration"
-  :dependencies [[org.clojure/clojure "[1.2.1,1.3.0]"]]
-  :repositories {"releases" ~(str user/local-maven-clone "/releases")
-                 "snapshots" ~(str user/local-maven-clone "/snapshots")
-                 "hotelicopter_snapshots" "https://raw.github.com/g1nn13/maven/master/snapshots"
-                 "hotelicopter_releases" "https://raw.github.com/g1nn13/maven/master/releases"}
-  :eval-in-leiningen true
-  :hooks [leiningen.v])
+  :dependencies [[org.clojure/clojure "1.4.0"]]
+  :repositories {"releases" {:url "s3p://rk-maven/releases/"}}
+  :plugins [[s3-wagon-private "1.1.2"]
+            [com.roomkey/lein-v "3.1.0"]]
+  :eval-in-leiningen true)
