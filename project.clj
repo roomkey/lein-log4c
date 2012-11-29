@@ -4,4 +4,5 @@
   :repositories {"releases" {:url "s3p://rk-maven/releases/"}}
   :plugins [[s3-wagon-private "1.1.2"]
             [com.roomkey/lein-v "3.1.0"]]
+  :profiles {:dev {:dependencies [[midje "1.4.0"]]}}
   :eval-in-leiningen true)
