@@ -14,7 +14,9 @@
     (eip project form init)))
 
 (defn- inject-dependency [eip project form & [init]]
-  (let [project (update-in project [:dependencies] conj ['com.hotelicopter/log4c "1.2.2"])]
+  (let [project (update-in project [:dependencies] concat ,, [['com.hotelicopter/log4c "1.2.2"]
+                                                              ['org.slf4j/jcl-over-slf4j "1.6.4"]
+                                                              ['org.slf4j/slf4j-log4j12 "1.6.4"]])]
     (eip project form init)))
 
 ;; We inject the dependency in an eip hook because adding it in
