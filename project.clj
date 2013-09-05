@@ -7,7 +7,7 @@
   :plugins [[s3-wagon-private "1.1.2"]
             [com.roomkey/lein-v "3.3.4"]]
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.4.0"]]
+  :dependencies [[org.clojure/clojure "1.5.1"]]
   :repositories {"releases" {:url "s3p://rk-maven/releases/"}}
   :profiles {:dev {:resource-paths ["test-resources"]
                    :dependencies [[midje "1.4.0"]]}}
