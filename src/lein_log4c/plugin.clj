@@ -23,5 +23,5 @@
 ;; middleware is too intrusive (it must be added to the project
 ;; itself as profiles have already been merged into the project).
 (defn hooks []
-  (robert.hooke/add-hook #'leiningen.core.eval/eval-in-project inject-dependency)
-  (robert.hooke/add-hook #'leiningen.core.eval/eval-in-project configure-logging))
+  (robert.hooke/add-hook #'leiningen.core.eval/eval-in-project #'inject-dependency)
+  (robert.hooke/add-hook #'leiningen.core.eval/eval-in-project #'configure-logging))
