@@ -1,5 +1,5 @@
 (ns lein-log4c.plugin
-  (:require [leiningen.compile :only [eval-in-project]]
+  (:require [leiningen.core.eval]
             [robert.hooke]))
 
 (defn- log4c-included? [{dependencies :dependencies}]
