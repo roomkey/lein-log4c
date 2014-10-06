@@ -4,11 +4,11 @@
   :license {:name "None"
             :distribution :manual
             :comments "All rights reserved"}
-  :plugins [[s3-wagon-private "1.1.2"]
+  :plugins [[lein-maven-s3-wagon "0.2.3"]
             [com.roomkey/lein-v "3.3.4"]]
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.5.1"]]
-  :repositories {"releases" {:url "s3p://rk-maven/releases/"}}
+  :repositories {"releases" {:url "s3://rk-maven/releases/"}}
   :profiles {:dev {:resource-paths ["test-resources"]
                    :dependencies [[midje "1.4.0"]]}}
   :eval-in-leiningen true)
