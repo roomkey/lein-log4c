@@ -8,7 +8,7 @@
             [com.roomkey/lein-v "3.3.4"]]
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.5.1"]]
-  :repositories {"releases" {:url "s3://rk-maven/releases/"}}
+  :repositories {"rk-public" {:url "http://rk-maven-public.s3-website-us-east-1.amazonaws.com/releases/"} "releases" {:url "s3://rk-maven/releases/"}}
   :profiles {:dev {:resource-paths ["test-resources"]
                    :dependencies [[midje "1.4.0"]]}}
   :eval-in-leiningen true)
