@@ -1,6 +1,6 @@
 (defproject com.hotelicopter/lein-log4c :lein-v
   :description "A Leiningen plugin to configure the log4j configuration"
-  :url "https://github.com/g1nn13/lein-log4c"
+  :url "https://github.com/roomkey/lein-log4c"
   :license {:name "None"
             :distribution :manual
             :comments "All rights reserved"}
