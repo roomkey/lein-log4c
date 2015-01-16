@@ -4,7 +4,7 @@
   :license {:name "None"
             :distribution :manual
             :comments "All rights reserved"}
-  :plugins [[lein-maven-s3-wagon "0.2.3"]
+  :plugins [[lein-maven-s3-wagon "0.2.4"]
             [com.roomkey/lein-v "3.3.4"]]
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.5.1"]]
