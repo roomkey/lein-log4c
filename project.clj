@@ -9,6 +9,10 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.5.1"]]
   :repositories {"rk-public" {:url "http://rk-maven-public.s3-website-us-east-1.amazonaws.com/releases/"} "releases" {:url "s3://rk-maven/releases/"}}
+  :release-tasks [["vcs" "assert-committed"]
+                  ["v" "update"] ;; compute new version & tag it
+                  ["vcs" "push"]
+                  ["deploy"]]
   :profiles {:dev {:resource-paths ["test-resources"]
                    :dependencies [[midje "1.4.0"]]}}
   :eval-in-leiningen true)
