@@ -3,13 +3,13 @@
             [robert.hooke]))
 
 (defn- log4c-included? [{dependencies :dependencies}]
-  (some (fn [[d _]] (= 'com.hotelicopter/log4c d) ) dependencies))
+  (some (fn [[d _]] (= 'com.hotelicopter/log4c d)) dependencies))
 
 (defn- ensure-dependency
   [project]
   (if (log4c-included? project)
     project
-    (update-in project [:dependencies] concat ,, [['com.hotelicopter/log4c "1.3.2"]])))
+    (update-in project [:dependencies] concat ,, [['com.hotelicopter/log4c "2.0.1"]])))
 
 (defn- configure-logging [eip project form & [init]]
   (let [project (ensure-dependency project)
