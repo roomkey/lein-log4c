@@ -4,8 +4,7 @@
   :license {:name "None"
             :distribution :manual
             :comments "All rights reserved"}
-  :plugins [[lein-maven-s3-wagon "0.2.4"]
-            [com.roomkey/lein-v "5.0.0"]]
+  :plugins [[com.roomkey/lein-v "5.0.0"]]
   :min-lein-version "2.5.1"
   :dependencies [[org.clojure/clojure "1.7.0"]]
   :repositories {"rk-public" {:url "http://rk-maven-public.s3-website-us-east-1.amazonaws.com/releases/"}
