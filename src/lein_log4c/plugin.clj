@@ -14,7 +14,7 @@
 (defn- configure-logging [eip project form & [init]]
   (let [project (ensure-dependency project)
         form `(do (log4c.core/init!)
-                  (log4c.core/configure-log-levels!)
+                  (log4c.core/configure! :CLJ_LOG_LEVEL)
                   ~form)
         init `(do (require 'log4c.core)
                   ~init)]
