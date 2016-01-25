@@ -1,3 +1,18 @@
+# DEPRECATED
+This project is deprecated.  The preferred way of controlling log levels
+dynamically is to use leiningen's `injection` feature.  Here's an example
+using injections with a "log4c" profile (in profiles.clj):
+
+```
+{
+ :log4c {:dependencies [[log4j/log4j "1.2.17"]
+                        [com.hotelicopter/log4c "3.0.0"]]
+         :injections [(require 'log4c.core)
+                      (log4c.core/init!)
+                      (log4c.core/configure! :CLJ_LOG_LEVEL)]}
+}
+```
+
 # lein-log4c
 
 This leingingen plugin allows you to configure log4j log levels
