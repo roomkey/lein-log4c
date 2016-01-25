@@ -1,18 +1,13 @@
 (ns lein-log4c.plugin
   (:require [leiningen.core.eval]
+            [leiningen.core.project :as project]
             [robert.hooke]))
 
-(defn- log4c-included? [{dependencies :dependencies}]
-  (some (fn [[d _]] (= 'com.hotelicopter/log4c d)) dependencies))
-
-(defn- ensure-dependency
-  [project]
-  (if (log4c-included? project)
-    project
-    (update-in project [:dependencies] concat ,, [['com.hotelicopter/log4c "3.0.0"]])))
+(def log4c-profile {:dependencies [['com.hotelicopter/log4c "3.0.0"]]})
 
 (defn- configure-logging [eip project form & [init]]
-  (let [project (ensure-dependency project)
+  (let [profile (or (:log4c (:profiles project)) log4c-profile)
+        project (project/merge-profiles project [profile])
         form `(do (log4c.core/init!)
                   (log4c.core/configure! :CLJ_LOG_LEVEL)
                   ~form)
