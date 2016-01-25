@@ -10,25 +10,26 @@ Log levels are configured by namespace.
 
 ## Usage
 
-CLJ_LOG_LEVEL=:warn,mylib.myns:debug lein midje
+First, include the plugin in your project or user profile:
+
+  {:plugins [[com.roomkey/lein-log4c "1.5.0"]]}
+
+Then simply specify the desired log levels with the CLJ_LOG_LEVEL environment
+variable or JVM system property.  For example:
+
+  CLJ_LOG_LEVEL=:warn,mylib.myns:debug lein test
 
 The above will set the root logger to have a log level of WARN and the
 mylib.myns namespace logger to have a level of DEBUG during the
-execution of lein midje.  To configure more static log4j options,
-consider placing a log4j.properties file in your test-resources
-directory.
+execution of lein test task.
 
-Note that your project must declare test dependencies as follows:
+It's possible to override the specific version of log4j or log4c used by specifying the
+desired version in the "log4c" profile:
 
-  :dev-dependencies [...
-                     [org.slf4j/slf4j-api "1.6.4"]
-                     [org.slf4j/jcl-over-slf4j "1.6.4"]
-                     [org.slf4j/slf4j-log4j12 "1.6.4"]
-                     [log4j/log4j "1.2.16"]
-                     ...]
+  {:log4c {:dependencies [[log4j/log4j "1.2.17"]]}}
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2016 Roomkey
 
 Distributed under the Eclipse Public License, the same as Clojure.
