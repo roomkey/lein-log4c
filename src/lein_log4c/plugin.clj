@@ -3,7 +3,8 @@
             [leiningen.core.project :as project]
             [robert.hooke]))
 
-(def log4c-profile {:dependencies [['com.hotelicopter/log4c "3.0.0"]]})
+(def log4c-profile {:dependencies [[log4j/log4j "1.2.17"]
+                                   ['com.hotelicopter/log4c "3.0.0"]]})
 
 (defn- configure-logging [eip project form & [init]]
   (let [profile (or (:log4c (:profiles project)) log4c-profile)
