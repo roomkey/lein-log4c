@@ -2,3 +2,4 @@
 /pom.xml.asc
 /src/version.clj
 /target
+/.lein-*
